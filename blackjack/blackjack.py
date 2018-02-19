@@ -10,14 +10,20 @@ playerHand = []
 dealerHand = []
 
 
+def banner():
+    banner_text = \
+        """
+    Welcome to the table.
+    Your hand will be displayed for you in an abbreviated form as you play,
+    Suits are  represented as such: 
+    (C)lubs, (S)pades, (H)earts, (D)iamonds
+    Try to get as close as you can to 21 without going over.
+    """
+    print(banner_text)
+
+
 def main():
-    print('\tWelcome to the table.\nYour hand will '
-          'be displayed for you in an abbreviated '
-          'form as you play,\nSuits are  '
-          'represented as such: (C)lubs, '
-          '(S)pades (H)earts, (D)iamonds\n'
-          'Try to get as close as you can to 21 '
-          'without going over.\n')
+    banner()
     playerHand.clear()
     dealerHand.clear()
     # calls to draw 2 cards for each player
@@ -95,8 +101,8 @@ def points(hand):
                 total += 10
             elif card[0] == 'K':
                 total += 10
-            # anything 2-10 can become an int
-            elif 2 <= int(card[0]) <= 10:
+            # anything 2-9 can become an int
+            elif 2 <= int(card[0]) <= 9:
                 total += int(card[0])
         else:
             total += 0
