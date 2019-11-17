@@ -2,7 +2,7 @@ from unittest import TestCase, main
 from unittest.mock import patch
 from blackjack.blackjack import banner
 import logging
-logging.basicConfig(level=logging.DEBUG,filename='blackjack.log')
+logging.basicConfig(level=logging.DEBUG, filename='blackjack.log')
 logger = logging.getLogger('grateguy')  # video game reference, character from Super Mario RPG
 
 

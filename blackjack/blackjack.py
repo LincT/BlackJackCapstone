@@ -91,16 +91,11 @@ def points(hand):
                 total += 11
                 aces = True
 
-            elif card[0] == '1':
+            elif card[0] in '1JQK':  # compressed logic
                 # only place a 1 appears is as
                 # first character of '10'
                 total += 10
-            elif card[0] == 'J':
-                total += 10
-            elif card[0] == 'Q':
-                total += 10
-            elif card[0] == 'K':
-                total += 10
+
             # anything 2-9 can become an int
             elif 2 <= int(card[0]) <= 9:
                 total += int(card[0])
