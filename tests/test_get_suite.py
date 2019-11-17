@@ -7,8 +7,15 @@ class TestMain(TestCase):
     # if we ever expand cards to be objects instead of just ascii text, this might be handy
     def test_getSuite(self):
         suites = ['Clubs', 'Spades', 'Hearts', 'Diamonds']
-        suit = get_suite()
-        self.assertIn(suit, suites)
+        suites.sort()
+        tested = []
+        while suites != tested:
+            suit = get_suite()
+            if suit not in tested:
+                tested.append(suit)
+                tested.sort()
+            self.assertIn(suit, suites)
+        print("Tested: " + str(tested))
 
 
 if __name__ == '__main__':

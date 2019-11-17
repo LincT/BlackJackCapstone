@@ -55,17 +55,9 @@ def main():
 
 
 def get_suite():
-    val = random.randint(1, 4)
-
-    if val == 1:
-        word = 'Clubs'
-    elif val == 2:
-        word = 'Spades'
-    elif val == 3:
-        word = 'Hearts'
-    else:
-        word = 'Diamonds'
-    return word
+    val = random.randint(0, 3)
+    suites = ['Clubs', 'Spades', 'Hearts', 'Diamonds']
+    return suites[val]
 
 
 def get_card():
@@ -157,14 +149,10 @@ def get_winner(player_score, house):
     if player_score <= 21:
         while points(dealerHand) <= 16:
             dealer()
-    if 21 >= player_score > house:
-        verdict += 'player'
-    elif house > 21 >= player_score:
-        verdict += 'player'
-    elif player_score > 21:
-        verdict += 'dealer'
-    elif house >= player_score:
-        verdict += 'dealer'
+    if (21 >= player_score > house) or (house > 21 >= player_score):
+        verdict = 'player'
+    elif (player_score > 21) or (house >= player_score):
+        verdict = 'dealer'
     else:
         verdict += 'dealer'
     return verdict
